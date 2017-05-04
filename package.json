@@ -1,0 +1,27 @@
+{
+  "name": "skolevej",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runetvilum/skolevej.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/runetvilum/skolevej/issues"
+  },
+  "homepage": "https://github.com/runetvilum/skolevej#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "osrm": "^4.9.1",
+    "phantom": "^0.8.4",
+    "uuid": "^2.0.1"
+  }
+}
