@@ -452,7 +452,7 @@ $("#tilskudbtn").click(
         window.open($(this).attr("href"));
 
         //redirect current page to success page
-        window.location = "https://link.oib.dk/kommune.asp?kommunekode=217&blanketid=1205";
+        window.location = "https://selvbetjening.egki.dk/217/217-07031914163514";
         window.focus();
     }
 );
