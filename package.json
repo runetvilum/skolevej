@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node src/index.js",
+    "docker": "docker build -t runetvilum/skolevej . && docker push runetvilum/skolevej",
+    "build": "docker build -t runetvilum/skolevej .",
+    "push": "docker push runetvilum/skolevej",
+    "run": "docker run --rm -p 5000:5000 runetvilum/skolevej"
   },
   "repository": {
     "type": "git",
@@ -18,10 +22,9 @@
   },
   "homepage": "https://github.com/runetvilum/skolevej#readme",
   "dependencies": {
-    "body-parser": "^1.14.2",
-    "express": "^4.13.4",
-    "osrm": "^4.9.1",
-    "phantom": "^0.8.4",
-    "uuid": "^2.0.1"
+    "express": "^4.17.1",
+    "osrm": "^5.22.0",
+    "puppeteer": "^2.1.1",
+    "uuid": "^3.4.0"
   }
 }

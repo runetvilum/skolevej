@@ -10,14 +10,9 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 11,
-                "DistriktNa": "Snekkersten",
-                "Tekst": "Afd. Klostermosevej",
-                "Link": "http://www.skolerne-i-snekkersten.dk/",
-                "adr_msl": 4017,
-                "MSLink": 11,
-                "Type": "Skole"
+                "id": 9,
+                "Tekst": "Snekkersten Skole",
+                "Link": "http://www.skolerne-i-snekkersten.dk/"
             },
             "geometry": {
                 "type": "Point",
@@ -30,14 +25,9 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 2,
-                "DistriktNa": "Hellebæk",
+                "id": 11,
                 "Tekst": "Apperupskolen",
-                "Link": "http://hellebaekskolen.dk/",
-                "adr_msl": 35056,
-                "MSLink": 111,
-                "Type": "Skole"
+                "Link": "http://hellebaekskolen.dk/"
             },
             "geometry": {
                 "type": "Point",
@@ -50,14 +40,9 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 11,
-                "DistriktNa": "Snekkersten",
+                "id": 8,
                 "Tekst": "Borupgårdskolen",
-                "Link": "http://www.skolerne-i-snekkersten.dk/",
-                "adr_msl": 6945,
-                "MSLink": 131,
-                "Type": "Skole"
+                "Link": "http://www.skolerne-i-snekkersten.dk/"
             },
             "geometry": {
                 "type": "Point",
@@ -70,14 +55,9 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 24,
-                "DistriktNa": "Helsingor",
-                "Tekst": "Byskolen",
-                "Link": "http://www.helsingorskole.dk/",
-                "adr_msl": 42140,
-                "MSLink": 24,
-                "Type": "Skole"
+                "id": 1,
+                "Tekst": "Skolen i Bymidten",
+                "Link": "http://www.helsingorskole.dk/"
             },
             "geometry": {
                 "type": "Point",
@@ -90,14 +70,9 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 1,
-                "DistriktNa": "Espergærde",
+                "id": 6,
                 "Tekst": "Espergærdeskolen",
-                "Link": "http://espergaerdeskole.dk/",
-                "adr_msl": 42803,
-                "MSLink": 1,
-                "Type": "Skole"
+                "Link": "http://espergaerdeskole.dk/"
             },
             "geometry": {
                 "type": "Point",
@@ -110,14 +85,9 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 1,
-                "DistriktNa": "Espergærde",
+                "id": 5,
                 "Tekst": "Grydemoseskolen",
-                "Link": "http://espergaerdeskole.dk/",
-                "adr_msl": 1954,
-                "MSLink": 101,
-                "Type": "Skole"
+                "Link": "http://espergaerdeskole.dk/"
             },
             "geometry": {
                 "type": "Point",
@@ -130,14 +100,9 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 2,
-                "DistriktNa": "Hellebæk",
+                "id": 12,
                 "Tekst": "Hellebækskolen",
-                "Link": "http://hellebaekskolen.dk/",
-                "adr_msl": 43150,
-                "MSLink": 2,
-                "Type": "Skole"
+                "Link": "http://hellebaekskolen.dk/"
             },
             "geometry": {
                 "type": "Point",
@@ -150,14 +115,9 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 3,
-                "DistriktNa": "Hornbæk",
+                "id": 13,
                 "Tekst": "Hornbæk Skole",
-                "Link": "http://www.hornbaek-skole.helsingor.dk/Infoweb/Designskabelon10/Rammeside.asp?Action=&Side=&Klasse=&Id=&Startside=&ForumID=",
-                "adr_msl": 34711,
-                "MSLink": 3,
-                "Type": "Skole"
+                "Link": "http://www.hornbaek-skole.helsingor.dk/Infoweb/Designskabelon10/Rammeside.asp?Action=&Side=&Klasse=&Id=&Startside=&ForumID="
             },
             "geometry": {
                 "type": "Point",
@@ -170,14 +130,9 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 1,
-                "DistriktNa": "Espergærde",
+                "id": 4,
                 "Tekst": "Mørdrupskolen",
-                "Link": "http://espergaerdeskole.dk/",
-                "adr_msl": 4877,
-                "MSLink": 102,
-                "Type": "Skole"
+                "Link": "http://espergaerdeskole.dk/"
             },
             "geometry": {
                 "type": "Point",
@@ -190,14 +145,9 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 24,
-                "DistriktNa": "Helsingor",
+                "id": 3,
                 "Tekst": "Nordvestskolen",
-                "Link": "http://www.helsingorskole.dk/",
-                "adr_msl": 12704,
-                "MSLink": 121,
-                "Type": "Skole"
+                "Link": "http://www.helsingorskole.dk/"
             },
             "geometry": {
                 "type": "Point",
@@ -210,34 +160,9 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 24,
-                "DistriktNa": "Helsingor",
-                "Tekst": "Nygård Skole",
-                "Link": "http://www.helsingorskole.dk/",
-                "adr_msl": 23678,
-                "MSLink": 122,
-                "Type": "Skole"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    12.530738852058027,
-                    56.04618119249908
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "id": null,
-                "Distrikt": 24,
-                "DistriktNa": "Helsingor",
+                "id": 2,
                 "Tekst": "Skolen ved Gurrevej",
-                "Link": "http://www.helsingorskole.dk/",
-                "adr_msl": 12289,
-                "MSLink": 123,
-                "Type": "Skole"
+                "Link": "http://www.helsingorskole.dk/"
             },
             "geometry": {
                 "type": "Point",
@@ -250,34 +175,24 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 24,
-                "DistriktNa": "Helsingor",
-                "Tekst": "Skolen ved Kongevej",
-                "Link": "http://www.helsingorskole.dk/",
-                "adr_msl": 9514,
-                "MSLink": 124,
-                "Type": "Skole"
+                "id": 15,
+                "Tekst": "10. Klasseskolen",
+                "Link": "http://ungdomsskolen.com/ungdomsskolen-er/10-klasseskolen/"
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    12.604528742507506,
-                    56.03138574307539
+                    12.5792747,
+                    56.0447197
                 ]
             }
         },
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 11,
-                "DistriktNa": "Snekkersten",
+                "id": 10,
                 "Tekst": "Skolen ved Rønnebær Alle",
-                "Link": "http://www.skolerne-i-snekkersten.dk/",
-                "adr_msl": 33420,
-                "MSLink": 132,
-                "Type": "Skole"
+                "Link": "http://www.skolerne-i-snekkersten.dk/"
             },
             "geometry": {
                 "type": "Point",
@@ -290,14 +205,9 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 1,
-                "DistriktNa": "Espergærde",
+                "id": 7,
                 "Tekst": "Tibberupskolen",
-                "Link": "http://espergaerdeskole.dk/",
-                "adr_msl": 903,
-                "MSLink": 103,
-                "Type": "Skole"
+                "Link": "http://espergaerdeskole.dk/"
             },
             "geometry": {
                 "type": "Point",
@@ -310,14 +220,9 @@
         {
             "type": "Feature",
             "properties": {
-                "id": null,
-                "Distrikt": 12,
-                "DistriktNa": "Tikøb",
+                "id": 14,
                 "Tekst": "Tikøb Skole",
-                "Link": "http://tikob-skole.skoleporten.dk/sp",
-                "adr_msl": 8735,
-                "MSLink": 12,
-                "Type": "Skole"
+                "Link": "http://tikob-skole.skoleporten.dk/sp"
             },
             "geometry": {
                 "type": "Point",

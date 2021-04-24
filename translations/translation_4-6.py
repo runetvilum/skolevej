@@ -1,9 +1,21 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 '''
 A translation function for TIGER 2012 counties
 '''
-
+def filterFeature(ogrfeature, fieldNames, reproject):
+    if not ogrfeature: return
+    index = ogrfeature.GetFieldIndex('skolevej')
+    if index >= 0:
+        if ogrfeature.GetField(index) == u'J':
+            return ogrfeature
+        if ogrfeature.GetField(index) == u'T':
+            index = ogrfeature.GetFieldIndex('traf_kl')
+            if index >= 0:
+                if ogrfeature.GetField(index) in ('3', '30', 3, 30):
+                    return ogrfeature
+    return None    
+    
 def filterTags(attrs):
     if not attrs:
         return
@@ -13,7 +25,7 @@ def filterTags(attrs):
     print attrs['vejklasse_']
     print type(attrs['vejklasse_'])
     '''
-
+    tags['name'] = attrs['ogr_fid']+'-'+attrs['skolevej']+'-'+attrs['traf_kl']
     klasse = attrs['vejklasse_']
     if klasse == u'Lokalvej-Primær':
         tags['highway'] = 'primary'
@@ -37,7 +49,7 @@ def filterTags(attrs):
         tags['highway'] = 'cycleway'
     if klasse == u'Cykelbane langs vej':
         tags['highway'] = 'cycleway'
-    if attrs['oneway'] == u'1':
+    if attrs['ensrettet'] and attrs['ensrettet'] != u'0':
         tags['oneway'] = 'yes'
 
     return tags

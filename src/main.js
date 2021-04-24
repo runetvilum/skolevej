@@ -136,13 +136,13 @@ function distance(input) {
 }
 function showRoute(options) {
     setQuery();
-    var latlngs = decode(options.data.route_geometry, 6);
+    var latlngs = decode(options.data.routes[0].geometry, 5);
     if (selectedRoute) {
         map.removeLayer(selectedRoute);
     }
     selectedRoute = L.polyline(latlngs, { color: 'red' }).addTo(map);
-    $('#afstand').text(distance(options.data.route_summary.total_distance));
-    $('#tid').text(options.data.route_summary.total_time.toHHMMSS());
+    $('#afstand').text(distance(options.data.routes[0].distance));
+    $('#tid').text(options.data.routes[0].duration.toHHMMSS());
 
     var pointAdresse = selectedAdresse.toGeoJSON();
     var pointSkole = selectedSkole.toGeoJSON();
@@ -162,7 +162,7 @@ function showRoute(options) {
     } else if (options.farlig) {
         $('#farlig').show();
         $('#tilskudbtn').show();
-    } else if (options.data.route_summary.total_distance > klasseIndex[options.klasse].max) {
+    } else if (options.data.routes[0].distance > klasseIndex[options.klasse].max) {
         $('#tilskudyes').show();
         $('#tilskudbtn').show();
     } else {
@@ -184,14 +184,14 @@ function route(options) {
     if (selectedSkole && selectedAdresse) {
         var data1 = {
             coordinates: [
-                [selectedAdresse._latlng.lat, selectedAdresse._latlng.lng],
-                [selectedSkole._latlng.lat, selectedSkole._latlng.lng]
+                [selectedAdresse._latlng.lng, selectedAdresse._latlng.lat],
+                [selectedSkole._latlng.lng, selectedSkole._latlng.lat]
             ]
         };
         var data2 = {
             coordinates: [
-                [selectedSkole._latlng.lat, selectedSkole._latlng.lng],
-                [selectedAdresse._latlng.lat, selectedAdresse._latlng.lng]
+                [selectedSkole._latlng.lng, selectedSkole._latlng.lat],
+                [selectedAdresse._latlng.lng, selectedAdresse._latlng.lat]
             ]
         };
         options.klasse = $('#klasse').val();
@@ -201,8 +201,8 @@ function route(options) {
             contentType: 'application/json',
             type: 'POST'
         }).done(function (all1) {
-            var route = all1.route_instructions[0];
-            var farlig = route[1].split('-');
+            var route = all1.waypoints[0];
+            var farlig = route.name.split('-');
             if (farlig.length === 3) {
                 id_start = farlig[0];
                 if (farlig[1] === 'T') {
@@ -218,8 +218,8 @@ function route(options) {
                 contentType: 'application/json',
                 type: 'POST'
             }).done(function (all2) {
-                var route = all2.route_instructions[0];
-                var farlig = route[1].split('-');
+                var route = all2.waypoints[0];
+                var farlig = route.name.split('-');
                 if (farlig.length === 3) {
                     id_stop = farlig[0];
                     if (farlig[1] === 'T') {
@@ -238,7 +238,7 @@ function route(options) {
                             options.data = all1;
                         }
                     } else {
-                        if (all1.route_summary.total_distance > all2.route_summary.total_distance) {
+                        if (all1.routes[0].distance > all2.routes[0].distance) {
                             $('#retning').val("0");
                             options.data = all1;
                         } else {
@@ -253,8 +253,8 @@ function route(options) {
                         contentType: 'application/json',
                         type: 'POST'
                     }).done(function (res1) {
-                        var route = res1.route_instructions[0];
-                        var farlig = route[1].split('-');
+                        var route = res1.waypoints[0];
+                        var farlig = route.name.split('-');
                         if (farlig.length === 3 && id_start === farlig[0]) {
                         } else {
                             options.farlig = true;
@@ -264,8 +264,8 @@ function route(options) {
                             contentType: 'application/json',
                             type: 'POST'
                         }).done(function (res2) {
-                            var route = res2.route_instructions[0];
-                            var farlig = route[1].split('-');
+                            var route = res2.waypoints[0];
+                            var farlig = route.name.split('-');
                             if (farlig.length === 3 && id_stop === farlig[0]) {
                             } else {
                                 options.farlig = true;
@@ -278,7 +278,7 @@ function route(options) {
                                         options.data = all1;
                                     }
                                 } else {
-                                    if (all1.route_summary.total_distance > all2.route_summary.total_distance) {
+                                    if (all1.routes[0].distance > all2.routes[0].distance) {
                                         $('#retning').val("0");
                                         options.data = all1;
                                     } else {
@@ -294,7 +294,7 @@ function route(options) {
                                         options.data = res1;
                                     }
                                 } else {
-                                    if (res1.route_summary.total_distance > res2.route_summary.total_distance) {
+                                    if (res1.routes[0].distance > res2.routes[0].distance) {
                                         $('#retning').val("0");
                                         options.data = res1;
                                     } else {
@@ -335,7 +335,7 @@ function setAdresse(latlng, tekst) {
 function setQuery() {
     var skole = $('#skoler').val();
     if (skole !== '-1') {
-        skole = skoler.getLayer(skole).feature.properties.MSLink;
+        skole = skoler.getLayer(skole).feature.properties.id;
     }
     var lng = '';
     var lat = '';
@@ -403,7 +403,7 @@ var skoler = L.geoJson(null, {
 
 skoler.on('layeradd', function (e) {
     $('#skoler').append('<option value=' + e.layer._leaflet_id + '>' + e.layer.feature.properties.Tekst + '</option>');
-    if (hash.length > 1 && hash[1] === e.layer.feature.properties.MSLink.toString()) {
+    if (hash.length > 1 && hash[1] === e.layer.feature.properties.id.toString()) {
         $('#skoler').val(e.layer._leaflet_id);
         selectSkole(e.layer);
     }
@@ -421,7 +421,7 @@ var overlays = {
 
 L.control.layers(baselayers, overlays).addTo(map);
 
-$.getJSON("skoler.geojson", function (data) {
+$.getJSON("skoler.json", function (data) {
     skoler.addData(data);
     map.fitBounds(skoler.getBounds());
 });

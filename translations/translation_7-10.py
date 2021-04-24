@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 '''
 A translation function for TIGER 2012 counties
@@ -12,9 +12,9 @@ def filterFeature(ogrfeature, fieldNames, reproject):
         if ogrfeature.GetField(index) == u'T':
             index = ogrfeature.GetFieldIndex('traf_kl')
             if index >= 0:
-                if ogrfeature.GetField(index) in ('3', '30', 3, 30):
+                if ogrfeature.GetField(index) not in ('10', 10):
                     return ogrfeature
-    return None    
+    return None
     
 def filterTags(attrs):
     if not attrs:

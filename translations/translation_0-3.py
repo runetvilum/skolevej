@@ -1,10 +1,17 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 '''
 A translation function for TIGER 2012 counties
 '''
-
-
+def filterFeature(ogrfeature, fieldNames, reproject):
+    if not ogrfeature: return
+    index = ogrfeature.GetFieldIndex('skolevej')
+    if index >= 0:
+        if ogrfeature.GetField(index) == u'J':
+            return ogrfeature
+    return None
+    
+    
 def filterTags(attrs):
     if not attrs:
         return
@@ -40,5 +47,4 @@ def filterTags(attrs):
         tags['highway'] = 'cycleway'
     if attrs['ensrettet'] and attrs['ensrettet'] != u'0':
         tags['oneway'] = 'yes'
-
     return tags

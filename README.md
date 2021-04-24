@@ -50,3 +50,11 @@ List docker id
 Stop docker
 
     docker stop <id>
+
+
+# Deploy
+npm run docker
+ssh metadatabase
+docker-compose stop
+docker-compose pull
+docker-compose up -d
