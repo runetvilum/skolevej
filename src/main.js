@@ -32,29 +32,65 @@ var skaermkort = L.tileLayer('//{s}.services.kortforsyningen.dk/topo_skaermkort_
             return 'L' + zoom;
     }
 }).addTo(map);
-var skoledistrikter = L.geoJson(null);
-$.getJSON('skoledistrikter.geojson', function (data) {
-    skoledistrikter.addData(data);
+var skoledistrikter_06 = L.geoJson(null);
+var skoledistrikter_79 = L.geoJson(null);
+var skoledistrikter_10 = L.geoJson(null);
+$.getJSON('Skoledistrikter/Skoledistrikt_0-6.geojson', function (data) {
+    skoledistrikter_06.addData(data);
+});
+$.getJSON('Skoledistrikter/Skoledistrikt_7-9.geojson', function (data) {
+    skoledistrikter_79.addData(data);
+});
+$.getJSON('Skoledistrikter/Skoledistrikt_10.geojson', function (data) {
+    console.log(data)
+    skoledistrikter_10.addData(data);
 });
 
 var klasseIndex = {
-    '0-3': {
+    '0': {
         route: '0-3',
         max: 2500
     },
-    '4-6': {
+    '1': {
+        route: '0-3',
+        max: 2500
+    },
+    '2': {
+        route: '0-3',
+        max: 2500
+    },
+    '3': {
+        route: '0-3',
+        max: 2500
+    },
+    '4': {
         route: '4-6',
         max: 6000
-    }
-    , '7-9': {
+    },
+    '5': {
+        route: '4-6',
+        max: 6000
+    },
+    '6': {
+        route: '4-6',
+        max: 6000
+    },
+    '7': {
         route: '7-10',
         max: 7000
-    }
-    , '10': {
+    },
+    '8': {
+        route: '7-10',
+        max: 7000
+    },
+    '9': {
+        route: '7-10',
+        max: 7000
+    },
+    '10': {
         route: '7-10',
         max: 9000
     }
-
 };
 var selectedSkole, selectedAdresse, selectedRoute;
 var icon = L.MakiMarkers.icon({ icon: "school", color: "#377eb8", size: "m" });
@@ -416,7 +452,9 @@ var baselayers = {
 
 var overlays = {
     // "Skoler": skoler
-    "Skoledistrikter": skoledistrikter
+    "Skoledistrikter 0.-6.klasse": skoledistrikter_06,
+    "Skoledistrikter 7.-9.klasse": skoledistrikter_79,
+    "Skoledistrikt 10.klasse": skoledistrikter_10
 };
 
 L.control.layers(baselayers, overlays).addTo(map);
