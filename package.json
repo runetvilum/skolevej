@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/runetvilum/skolevej#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "osrm": "^5.22.0",
     "puppeteer": "^2.1.1",
     "uuid": "^3.4.0"
